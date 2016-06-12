@@ -26,15 +26,12 @@ const icons = [
 export default function guessBestIcon(word) {
     word = word.toLowerCase();
 
-    /*icons.map(function(icon) {
-        if (word.includes(icon)) {
-            return icon;
-        }
-    })*/
-    for (var i=0; i < icons.length; i++) {
-        if (word.includes(icons[i])) {
-            return icons[i];
-        }
+    var iconsMatch = icons.filter((icon) => {
+        return (word.includes(icon));
+    })
+
+    if (iconsMatch.length > 0) {
+        return iconsMatch[0];
     }
 
     if (word.includes("sport") || word.includes("football") || word.includes("games")) {
