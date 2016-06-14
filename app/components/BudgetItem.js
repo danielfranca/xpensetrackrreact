@@ -3,12 +3,12 @@ import guessBestIcon from "../utils/helpers";
 import numeral from 'numeral';
 
 function BudgetItem(props) {
-    var iconClass = "circular " + guessBestIcon(props.budgetItem.category) + " icon";
+    var iconClass = "circular " + guessBestIcon(props.budgetItem.category) + " icon blue";
     return  <div className="content">
             <div className="right floated content">
-                <div className="ui button">Edit</div>
+                <div className="ui button blue">Edit</div>
             </div>
-            <div className="header">
+            <div className="header" style={{color: "#555555"}}>
                 <i className={iconClass}></i>
                 {props.budgetItem.category}
             </div>
