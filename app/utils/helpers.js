@@ -21,7 +21,9 @@ const icons = [
     "payment",
     "soccer",
     "shop"
-]
+];
+
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 export default function guessBestIcon(word) {
     word = word.toLowerCase();
@@ -66,4 +68,12 @@ export default function guessBestIcon(word) {
     }
 
     return "dollar";
+}
+
+export function currentYear() {
+    return new Date().getFullYear();
+}
+
+export function currentMonth() {
+    return months[new Date().getMonth()];
 }

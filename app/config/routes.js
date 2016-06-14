@@ -1,12 +1,12 @@
 import React from 'react';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, hashHistory, DefaultRoute} from 'react-router';
 
-import Main from '../components/Main';
-import Home from '../components/Home';
+import MainContainer from '../containers/MainContainer';
+
 
 var routes = (
   <Router history={hashHistory}>
-    <Route path='/' component={Main}>
+    <Route path='(/:year/:month)' component={MainContainer} >
     </Route>
   </Router>
 );
