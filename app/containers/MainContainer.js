@@ -12,17 +12,20 @@ class MainContainer extends React.Component {
     }
 
     componentDidMount() {
-        console.log("ROUTE PARAMS: ", this.props.routeParams);
-        if (this.props.routeParams.year && this.props.routeParams.month) {
+        if (this.props.params.year && this.props.params.month) {
             this.setState({
-                year: this.props.routeParams.year,
-                month: this.props.routeParams.month
+                year: this.props.params.year,
+                month: this.props.params.month
             });
         }
     }
 
     render() {
-        return <Main year={this.state.year} month={this.state.month}/>;
+        return (
+            <div>
+            {React.cloneElement(this.props.children, { year: this.state.year, month: this.state.month })}
+            </div>
+        );
     }
 }
 
