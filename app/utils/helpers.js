@@ -77,3 +77,12 @@ export function currentYear() {
 export function currentMonth() {
     return months[new Date().getMonth()];
 }
+
+export function isValidYear(year) {
+    var curYear = currentYear();
+    return (year > curYear - 20 && year < curYear + 20 );
+}
+
+export function isValidMonth(month) {
+    return months.indexOf(month) > -1;
+}
