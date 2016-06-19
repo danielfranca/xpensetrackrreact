@@ -12,7 +12,7 @@ function BudgetItem(props) {
                 <i className={iconClass}></i>
                 {props.budgetItem.category}
             </div>
-            {numeral(props.budgetItem.budget).format('$ 0,0.00')}
+            {numeral(15).format('$ 0,0.00')} / {numeral(props.budgetItem.budget).format('$ 0,0.00')}
         </div>
 }
 
