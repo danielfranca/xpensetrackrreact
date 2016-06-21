@@ -1,5 +1,4 @@
 import React from 'react';
-import Main from '../components/Main'
 import { currentMonth, currentYear, isValidYear, isValidMonth } from '../utils/helpers'
 
 class MainContainer extends React.Component {
