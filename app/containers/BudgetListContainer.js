@@ -1,9 +1,15 @@
 import React from 'react';
 import BudgetList from '../components/BudgetList'
+var PropTypes = React.PropTypes;
+
 
 class BudgetListContainer extends React.Component {
     constructor() {
         super();
+    }
+
+    handleAddCategory(e) {
+        console.log("HANDLE ADD CATEGORY", e);
     }
 
     componentDidMount() {
@@ -11,7 +17,10 @@ class BudgetListContainer extends React.Component {
 
     render() {
         return (
-            <BudgetList year={this.props.year} month={this.props.month} budgetItems={this.props.budgetItems} />
+            <BudgetList
+                year={this.props.year} month={this.props.month} budgetItems={this.props.budgetItems}
+                onAddCategory={this.handleAddCategory}
+            />
         );
     }
 }

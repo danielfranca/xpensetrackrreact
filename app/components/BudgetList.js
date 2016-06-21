@@ -38,7 +38,7 @@ function BudgetList(props) {
             <h4 className="ui horizontal divider">
             </h4>
             <div className="ui centered grid">
-              <button className="ui button blue">Add Category</button>
+              <button className="ui button blue" onClick={props.onAddCategory}>Add Category</button>
               <button className="ui button blue">Add Transaction</button>
             </div>
             <h4 className="ui horizontal divider header">
