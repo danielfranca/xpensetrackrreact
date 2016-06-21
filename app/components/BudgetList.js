@@ -1,6 +1,7 @@
 import React from 'react';
-import BudgetItem from '../components/BudgetItem'
-import CheckinAccounts from '../components/CheckinAccounts'
+import BudgetItem from '../components/BudgetItem';
+import CheckinAccounts from '../components/CheckinAccounts';
+import Balance from '../components/Balance';
 
 function BudgetList(props) {
     var budgetItems = props.budgetItems;
@@ -32,10 +33,18 @@ function BudgetList(props) {
                     </div>
                 })}
             </div>
-            <div className="ui">
+            <h4 className="ui horizontal divider">
+            </h4>
+            <div className="ui centered grid">
               <button className="ui button blue">Add Category</button>
               <button className="ui button blue">Add Transaction</button>
             </div>
+            <h4 className="ui horizontal divider header">
+              <i className="bar chart icon"></i>
+              Results
+            </h4>
+
+            <Balance />
         </div>
     );
 }
