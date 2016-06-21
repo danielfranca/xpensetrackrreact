@@ -1,13 +1,52 @@
 import React from 'react';
-import { currentMonth, currentYear, isValidYear, isValidMonth } from '../utils/helpers'
+import { currentMonth, currentYear, isValidYear, isValidMonth } from '../utils/helpers';
+import { saveBudgetItems } from '../utils/persistence';
 
 class MainContainer extends React.Component {
+
+    createFakeData() {
+        var data = [
+                {
+                    id: 1,
+                    category: "Pablo/Food",
+                    budget: 30
+                },
+                {
+                    id: 2,
+                    category: "Groceries",
+                    budget: 160
+                },
+                {
+                    id: 3,
+                    category: "Restaurants/Deliveries",
+                    budget: 140
+                },
+                {
+                    id: 4,
+                    category: "Fun&Games",
+                    budget: 280
+                },
+                {
+                    id: 5,
+                    category: "Internet/Telephone/Tv",
+                    budget: 112
+                },
+                {
+                    id: 6,
+                    category: "House",
+                    budget: 945
+                }
+        ];
+        saveBudgetItems(data);
+    }
+
     constructor() {
         super();
         this.state = {
             month: currentMonth(),
             year: currentYear(),
         }
+        this.createFakeData();
     }
 
     componentDidMount() {

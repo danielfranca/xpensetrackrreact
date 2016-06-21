@@ -1,41 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import BudgetListContainer from '../containers/BudgetListContainer';
+import { loadBudgetItems } from '../utils/persistence'
 
 
-function fakeData() {
-    return [
-            {
-                id: 1,
-                category: "Pablo/Food",
-                budget: 30
-            },
-            {
-                id: 2,
-                category: "Groceries",
-                budget: 160
-            },
-            {
-                id: 3,
-                category: "Restaurants/Deliveries",
-                budget: 140
-            },
-            {
-                id: 4,
-                category: "Fun&Games",
-                budget: 280
-            },
-            {
-                id: 5,
-                category: "Internet/Telephone/Tv",
-                budget: 112
-            },
-            {
-                id: 6,
-                category: "House",
-                budget: 945
-            }
-    ];
+function loadData() {
+    return loadBudgetItems();
 }
 
 
@@ -50,7 +20,7 @@ function Home(props) {
                     </div>
                 </h2>
                 <div className="ui center aligned">
-                    <BudgetListContainer budgetItems={fakeData()} year={props.year} month={props.month} />
+                    <BudgetListContainer budgetItems={loadData()} year={props.year} month={props.month} />
                 </div>
             </div>
         </div>
