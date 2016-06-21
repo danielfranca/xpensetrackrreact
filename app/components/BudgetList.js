@@ -32,6 +32,10 @@ function BudgetList(props) {
                     </div>
                 })}
             </div>
+            <div className="ui">
+              <button className="ui button blue">Add Category</button>
+              <button className="ui button blue">Add Transaction</button>
+            </div>
         </div>
     );
 }
