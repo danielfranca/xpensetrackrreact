@@ -2,6 +2,7 @@ import React from 'react';
 import BudgetItem from '../components/BudgetItem';
 import CheckinAccounts from '../components/CheckinAccounts';
 import Balance from '../components/Balance';
+import CategoryModal from '../components/CategoryModal';
 var PropTypes = React.PropTypes;
 
 
@@ -45,8 +46,8 @@ function BudgetList(props) {
               <i className="bar chart icon"></i>
               Results
             </h4>
-
             <Balance />
+            <CategoryModal />
         </div>
     );
 }
