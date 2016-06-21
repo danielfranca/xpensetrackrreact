@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import BudgetList from '../components/BudgetList';
+import BudgetListContainer from '../containers/BudgetListContainer';
 
 
 function fakeData() {
@@ -50,7 +50,7 @@ function Home(props) {
                     </div>
                 </h2>
                 <div className="ui center aligned">
-                    <BudgetList budgetItems={fakeData()} year={props.year} month={props.month} />
+                    <BudgetListContainer budgetItems={fakeData()} year={props.year} month={props.month} />
                 </div>
             </div>
         </div>
