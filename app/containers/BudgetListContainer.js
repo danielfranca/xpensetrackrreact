@@ -20,4 +20,10 @@ BudgetListContainer.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
+BudgetList.propTypes = {
+  month: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  budgetItems: PropTypes.array.isRequired,
+}
+
 export default BudgetListContainer;

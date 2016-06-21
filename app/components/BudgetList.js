@@ -2,6 +2,8 @@ import React from 'react';
 import BudgetItem from '../components/BudgetItem';
 import CheckinAccounts from '../components/CheckinAccounts';
 import Balance from '../components/Balance';
+var PropTypes = React.PropTypes;
+
 
 function BudgetList(props) {
     var budgetItems = props.budgetItems;
@@ -47,6 +49,13 @@ function BudgetList(props) {
             <Balance />
         </div>
     );
+}
+
+BudgetList.propTypes = {
+  onAddCategory: PropTypes.func.isRequired,
+  month: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  budgetItems: PropTypes.array.isRequired,
 }
 
 export default BudgetList;
