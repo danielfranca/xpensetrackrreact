@@ -15,3 +15,14 @@ export function loadBudgetItems() {
 export function saveBudgetItems(budgetItems) {
     localStorage.setObject('budgetItems', budgetItems);
 }
+
+export function saveNewCategory(categoryName) {
+    console.log("Saving new category: ", categoryName);
+    var categories = localStorage.getObject('categories') || [];
+    if (categories.indexOf(categoryName) == -1) {
+        console.log("It's a new category");
+        categories.push(categoryName);
+        console.log("New categories object: ", categories);
+        localStorage.setObject('categories', categories);
+    }
+}

@@ -47,13 +47,14 @@ function BudgetList(props) {
               Results
             </h4>
             <Balance />
-            <CategoryModal />
+            <CategoryModal onSubmitCategory={props.onSubmitCategory} />
         </div>
     );
 }
 
 BudgetList.propTypes = {
   onAddCategory: PropTypes.func.isRequired,
+  onSubmitCategory: PropTypes.func.isRequired,
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   budgetItems: PropTypes.array.isRequired,
