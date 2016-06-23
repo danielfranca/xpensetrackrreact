@@ -14,7 +14,7 @@ export default function CategoryModal(props) {
                   <div className="ui label">
                     Name
                   </div>
-                <input type="text" placeholder="Category name" name="categoryName"/>
+                <input type="text" placeholder="Category name" name="categoryName" id="categoryNameInput"/>
               </div>
               <h4 className="ui horizontal divider">
               </h4>

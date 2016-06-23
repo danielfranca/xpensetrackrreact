@@ -13,6 +13,7 @@ class BudgetListContainer extends React.Component {
 
     handleAddCategory(e) {
         console.log("handleAddCategory - E: ", e);
+        $('#categoryNameInput').val("");
         $('#categoryModal')
           .modal({
             closable  : false,
