@@ -31,7 +31,7 @@ function BudgetList(props) {
             </div>
             <div className="ui middle aligned divided list">
                 {budgetItems.map(function(budgetItem) {
-                  return <div className="item" key={budgetItem.id}>
+                  return <div className="item" key={budgetItem.category}>
                         <BudgetItem budgetItem={budgetItem} />
                     </div>
                 })}

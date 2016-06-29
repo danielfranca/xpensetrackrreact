@@ -1,3 +1,4 @@
+import {currentYearMonthAsString} from '../utils/helpers';
 
 Storage.prototype.setObject = function(key, value) {
     this.setItem(key, JSON.stringify(value));
@@ -8,12 +9,34 @@ Storage.prototype.getObject = function(key) {
     return value && JSON.parse(value);
 }
 
-export function loadBudgetItems() {
-    return localStorage.getObject('budgetItems') || [];
+export function loadBudgetItems(date = currentYearMonthAsString()) {
+    return localStorage.getObject('budgetItems-' + date) || [];
 }
 
-export function saveBudgetItems(budgetItems) {
-    localStorage.setObject('budgetItems', budgetItems);
+export function saveBudgetItems(date, budgetItems) {
+    localStorage.setObject('budgetItems-' + date, budgetItems);
+}
+
+export function renameCategory(oldName, newName, date = currentYearMonthAsString(), changeDefault = true) {
+
+    var items = loadBudgetItems(date);
+    var newItems = items.map((item) => {
+        return {
+            id: item.id,
+            category: (item.category === oldName)?newName:item.category,
+            transactions: [],
+            budget: item.budget
+        };
+    })
+
+    saveBudgetItems(date, newItems);
+
+    if (changeDefault) {
+        var defaultCategories = localStorage.getObject('default-categories');
+        var newCategories = defaultCategories.map((cat) => {
+            return { name: (cat.name === oldName)?newName:cat.name };
+        })
+    }
 }
 
 export function saveNewCategory(categoryName) {

@@ -74,8 +74,16 @@ export function currentYear() {
     return new Date().getFullYear();
 }
 
-export function currentMonth() {
+export function currentMonthAsString() {
     return months[new Date().getMonth()];
+}
+
+export function currentMonth() {
+    return new Date().getMonth();
+}
+
+export function currentYearMonthAsString() {
+    return currentYear + '/' + currentMonth;
 }
 
 export function isValidYear(year) {
