@@ -14,7 +14,7 @@ function BudgetList(props) {
     return (
         <div>
             <div className="ui grid" style={{marginTop: "10px", marginBottom: "10px"}} id="top-elements">
-                <div className="ui buttons right floated">
+                <div className="ui buttons right floated mini">
                     <button className="ui button">
                     <i className="chevron left icon blue"></i>
                     </button>
