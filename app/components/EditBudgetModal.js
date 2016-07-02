@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function EditBudgetModal(props) {
     return (
-        <div className="ui modal" id="categoryModal">
+        <div className="ui modal" id="EditBudgetModal">
           <i className="close icon"></i>
           <div className="header">
             Edit Budget

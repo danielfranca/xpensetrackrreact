@@ -17,19 +17,7 @@ class BudgetListContainer extends React.Component {
     handleAddCategory(e) {
         console.log("handleAddCategory - E: ", e);
         $('#categoryNameInput').val("");
-        $('#categoryModal')
-          .modal({
-            closable  : false,
-            onDeny    : function(){
-              console.log('Wait not yet!');
-              return false;
-            },
-            onApprove : function() {
-              console.log('Approved!');
-            }
-          })
-          .modal('show')
-        ;
+        $('#categoryModal').modal('show');
     }
 
     handleSubmitCategory(e) {
@@ -44,35 +32,13 @@ class BudgetListContainer extends React.Component {
         console.log("Clicked to add new transaction")
         $('#newTransactionCategory').val("");
         $('#newTransactionDescription').val("");
-        $('#newTransactionModal')
-          .modal({
-            closable  : false,
-            onDeny    : function(){
-              console.log('Wait not yet!');
-              return false;
-            },
-            onApprove : function() {
-              console.log('Approved!');
-            }
-          })
-          .modal('show')
+        $('#newTransactionModal').modal('show');
         ;
     }
 
     handleEditBudgetItem(e) {
-        $('#EditBudgetModal')
-          .modal({
-            closable  : false,
-            onDeny    : function(){
-              console.log('Wait not yet!');
-              return false;
-            },
-            onApprove : function() {
-              console.log('Approved!');
-            }
-          })
-          .modal('show')
-        ;
+        console.log("handleEditBudgetItem", $('#EditBudgetModal'));
+        $('#EditBudgetModal').modal('show');
 
     }
 
