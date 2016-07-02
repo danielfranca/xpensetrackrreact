@@ -8,7 +8,6 @@ function loadData() {
     return loadBudgetItems();
 }
 
-
 function Home(props) {
     return (
         <div>

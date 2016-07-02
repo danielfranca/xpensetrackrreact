@@ -3,6 +3,8 @@ import BudgetItem from '../components/BudgetItem';
 import CheckinAccounts from '../components/CheckinAccounts';
 import Balance from '../components/Balance';
 import CategoryModal from '../components/CategoryModal';
+import EditBudgetModal from '../components/EditBudgetModal';
+import NewTransactionModal from '../components/NewTransactionModal';
 var PropTypes = React.PropTypes;
 
 
@@ -32,7 +34,7 @@ function BudgetList(props) {
             <div className="ui middle aligned divided list">
                 {budgetItems.map(function(budgetItem) {
                   return <div className="item" key={budgetItem.category}>
-                        <BudgetItem budgetItem={budgetItem} />
+                        <BudgetItem budgetItem={budgetItem} onEditBudgetItem={props.onEditBudgetItem}/>
                     </div>
                 })}
             </div>
@@ -40,7 +42,7 @@ function BudgetList(props) {
             </h4>
             <div className="ui centered grid">
               <button className="ui button blue" onClick={props.onAddCategory}>Add Category</button>
-              <button className="ui button blue">Add Transaction</button>
+              <button className="ui button blue" onClick={props.onAddNewTransaction}>Add Transaction</button>
             </div>
             <h4 className="ui horizontal divider header">
               <i className="bar chart icon"></i>
@@ -48,13 +50,18 @@ function BudgetList(props) {
             </h4>
             <Balance />
             <CategoryModal onSubmitCategory={props.onSubmitCategory} />
+            <EditBudgetModal onSubmitBudgetItem={props.onSubmitBudgetItem} />
+            <NewTransactionModal />
         </div>
     );
 }
 
 BudgetList.propTypes = {
   onAddCategory: PropTypes.func.isRequired,
+  onAddNewTransaction: PropTypes.func.isRequired,
   onSubmitCategory: PropTypes.func.isRequired,
+  onSubmitBudgetItem: PropTypes.func.isRequired,
+  onEditBudgetItem: PropTypes.func.isRequired,
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   budgetItems: PropTypes.array.isRequired,
