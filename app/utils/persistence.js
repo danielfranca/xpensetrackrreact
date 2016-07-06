@@ -9,11 +9,11 @@ Storage.prototype.getObject = function(key) {
     return value && JSON.parse(value);
 }
 
-export function loadBudgetItems(date = currentYearMonthAsString()) {
+export function loadBudgetItems(date=currentYearMonthAsString()) {
     return localStorage.getObject('budgetItems-' + date) || [];
 }
 
-export function saveBudgetItems(date, budgetItems) {
+export function saveBudgetItems(budgetItems, date=currentYearMonthAsString()) {
     localStorage.setObject('budgetItems-' + date, budgetItems);
 }
 
@@ -39,13 +39,26 @@ export function renameCategory(oldName, newName, date = currentYearMonthAsString
     }
 }
 
-export function saveNewCategory(categoryName) {
+export function saveNewCategory(categoryName, isPermanent) {
     console.log("Saving new category: ", categoryName);
-    var categories = localStorage.getObject('categories') || [];
-    if (categories.indexOf(categoryName) == -1) {
-        console.log("It's a new category");
-        categories.push(categoryName);
-        console.log("New categories object: ", categories);
-        localStorage.setObject('categories', categories);
+
+    //Save it for the current budget month
+    var data = loadBudgetItems();
+    data.push({
+        category: categoryName,
+        budget: 0,
+        transactions: []
+    });
+    saveBudgetItems(data);
+
+    //Save it as new default category
+    if (isPermanent) {
+        var categories = localStorage.getObject('categories') || [];
+        if (categories.indexOf(categoryName) == -1) {
+            console.log("It's a new category");
+            categories.push(categoryName);
+            console.log("New categories object: ", categories);
+            localStorage.setObject('categories', categories);
+        }
     }
 }

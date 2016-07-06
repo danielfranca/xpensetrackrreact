@@ -9,17 +9,19 @@ export default function CategoryModal(props) {
           </div>
           <h4 className="ui horizontal divider">
           </h4>
-          <form onSubmit={props.onSubmitCategory}>
-              <div className="ui labeled input" style={{marginLeft: 10}}>
-                  <div className="ui label">
-                    Name
-                  </div>
-                <input type="text" placeholder="Category name" name="categoryName" id="categoryNameInput"/>
+          <form className="ui form" onSubmit={props.onSubmitCategory} style={{marginLeft:"10px", marginRight: "10px"}}>
+              <div className="field">
+                <label>Category</label>
+                <input type="text" name="categoryName" placeholder="Category" value={props.category} />
+              </div>
+              <div class="ui toggle checkbox">
+                <input type="checkbox" name="isPermanent" />
+                <label> Make it permanent</label>
               </div>
               <h4 className="ui horizontal divider">
               </h4>
               <div className="actions">
-                <div className="ui button">Cancel</div>
+                <div className="ui button" style={{marginBottom: "10px"}}>Cancel</div>
                 <button className="ui button" type="submit">OK</button>
               </div>
            </form>

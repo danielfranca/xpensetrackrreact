@@ -21,7 +21,7 @@ class BudgetListContainer extends React.Component {
     }
 
     handleSubmitCategory(e) {
-        saveNewCategory(e.target.categoryName.value);
+        saveNewCategory(e.target.categoryName.value, e.target.isPermanent);
     }
 
     handleSubmitBudgetItem(e) {
