@@ -9,21 +9,17 @@ export default function EditBudgetModal(props) {
           </div>
           <h4 className="ui horizontal divider">
           </h4>
-          <form onSubmit={props.onSubmitBudgetItem}>
-              <div className="ui labeled input" style={{marginLeft: 10}}>
-                  <div className="ui label">
-                    Name
-                  </div>
-                <input type="text" placeholder="Category name" name="categoryName" id="categoryNameInput" value={props.categoryName}/>
-                <input type="text" placeholder="Budget" name="budget" id="budget" value={props.budget}/>
-              </div>
-              <h4 className="ui horizontal divider">
-              </h4>
-              <div className="actions">
-                <div className="ui button">Cancel</div>
-                <button className="ui button" type="submit">OK</button>
-              </div>
-           </form>
+          <form className="ui centered form" onSubmit={props.onSubmitBudgetItem} style={{marginLeft: "10px", marginRight: "10px", marginBottom: "10px"}}>
+            <div className="field">
+              <label>Category</label>
+              <input type="text" name="category" placeholder="Category" value={props.category} />
+            </div>
+            <div className="field">
+              <label>Budget</label>
+              <input type="text" name="budget" placeholder="Budget" value={props.budget} />
+            </div>
+            <button className="ui button" type="submit">Save</button>
+          </form>
         </div>
     );
 }
