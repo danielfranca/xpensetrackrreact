@@ -10,7 +10,7 @@ function BudgetItem(props) {
     return  (
         <div className="content">
             <div className="right floated content">
-                <div className="ui icon button blue"><i className="icon trash"></i></div>
+                <div className="ui icon button blue" onClick={props.onDeleteItem}><i className="icon trash"></i></div>
             </div>
             <div className="header" style={{color: "#555555"}}>
                 <i className={iconClass}></i>

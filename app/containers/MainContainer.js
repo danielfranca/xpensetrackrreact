@@ -46,7 +46,7 @@ class MainContainer extends React.Component {
             month: currentMonthAsString(),
             year: currentYear(),
         }
-        this.createFakeCategories();
+        //this.createFakeCategories();
     }
 
     componentDidMount() {

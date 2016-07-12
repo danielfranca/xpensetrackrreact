@@ -5,6 +5,7 @@ import Balance from '../components/Balance';
 import CategoryModal from '../components/CategoryModal';
 import EditBudgetModal from '../components/EditBudgetModal';
 import NewTransactionModal from '../components/NewTransactionModal';
+import BudgetItemContainer from '../containers/BudgetItemContainer';
 var PropTypes = React.PropTypes;
 
 
@@ -34,7 +35,7 @@ function BudgetList(props) {
             <div className="ui middle aligned divided list">
                 {budgetItems.map(function(budgetItem) {
                   return <div className="item" key={budgetItem.category}>
-                        <BudgetItem budgetItem={budgetItem} onEditBudgetItem={props.onEditBudgetItem}/>
+                        <BudgetItemContainer budgetItem={budgetItem} onEditBudgetItem={props.onEditBudgetItem} />
                     </div>
                 })}
             </div>
@@ -50,7 +51,12 @@ function BudgetList(props) {
             </h4>
             <Balance />
             <CategoryModal onSubmitCategory={props.onSubmitCategory} />
-            <EditBudgetModal onSubmitBudgetItem={props.onSubmitBudgetItem} />
+            <EditBudgetModal
+                onSubmitBudgetItem={props.onSubmitBudgetItem}
+                category={'__'}
+                budget={10}
+                transactions={[]}
+            />
             <NewTransactionModal />
         </div>
     );
@@ -60,8 +66,6 @@ BudgetList.propTypes = {
   onAddCategory: PropTypes.func.isRequired,
   onAddNewTransaction: PropTypes.func.isRequired,
   onSubmitCategory: PropTypes.func.isRequired,
-  onSubmitBudgetItem: PropTypes.func.isRequired,
-  onEditBudgetItem: PropTypes.func.isRequired,
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   budgetItems: PropTypes.array.isRequired,

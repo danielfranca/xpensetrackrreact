@@ -12,9 +12,9 @@ export default function CategoryModal(props) {
           <form className="ui form" onSubmit={props.onSubmitCategory} style={{marginLeft:"10px", marginRight: "10px"}}>
               <div className="field">
                 <label>Category</label>
-                <input type="text" name="categoryName" placeholder="Category" value={props.category} />
+                <input type="text" name="categoryName" placeholder="Name" value={props.category} />
               </div>
-              <div class="ui toggle checkbox">
+              <div className="ui toggle checkbox">
                 <input type="checkbox" name="isPermanent" />
                 <label> Make it permanent</label>
               </div>

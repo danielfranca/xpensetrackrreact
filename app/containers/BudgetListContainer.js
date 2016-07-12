@@ -9,7 +9,6 @@ class BudgetListContainer extends React.Component {
         super(props);
         this.handleAddCategory = this.handleAddCategory.bind(this);
         this.handleAddNewTransaction = this.handleAddNewTransaction.bind(this);
-        this.handleEditBudgetItem = this.handleEditBudgetItem.bind(this);
         this.handleSubmitCategory = this.handleSubmitCategory.bind(this);
         this.handleSubmitBudgetItem = this.handleSubmitBudgetItem.bind(this);
     }
@@ -36,12 +35,6 @@ class BudgetListContainer extends React.Component {
         ;
     }
 
-    handleEditBudgetItem(e) {
-        console.log("handleEditBudgetItem", $('#EditBudgetModal'));
-        $('#EditBudgetModal').modal('show');
-
-    }
-
     render() {
         return (
             <BudgetList
@@ -50,7 +43,6 @@ class BudgetListContainer extends React.Component {
                 onAddNewTransaction={this.handleAddNewTransaction}
                 onSubmitCategory={this.handleSubmitCategory}
                 onSubmitBudgetItem={this.handleSubmitBudgetItem}
-                onEditBudgetItem={this.handleEditBudgetItem}
             />
         );
     }
@@ -60,7 +52,7 @@ BudgetListContainer.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-BudgetList.propTypes = {
+BudgetListContainer.propTypes = {
   month: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   budgetItems: PropTypes.array.isRequired,

@@ -53,12 +53,17 @@ export function saveNewCategory(categoryName, isPermanent) {
 
     //Save it as new default category
     if (isPermanent) {
+        var categoriesHash = localStorage.getObject('categories-hash') || [];
         var categories = localStorage.getObject('categories') || [];
-        if (categories.indexOf(categoryName) == -1) {
+        if (!(categoryName in categoriesHash)) {
             console.log("It's a new category");
-            categories.push(categoryName);
+            categories.push({
+                name: categoryName
+            });
+            categoriesHash[categoryName] = categories.length;
             console.log("New categories object: ", categories);
             localStorage.setObject('categories', categories);
+            localStorage.setObject('categories-hash', categoriesHash);
         }
     }
 }
