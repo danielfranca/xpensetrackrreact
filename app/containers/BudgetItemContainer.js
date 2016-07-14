@@ -16,8 +16,10 @@ class BudgetItemContainer extends React.Component {
 
     handleEditBudgetItem(e) {
         console.log("handleEditBudgetItem", $('#EditBudgetModal'));
-        $('#EditBudgetModal').modal('show');
+        $('#budget-category').val(this.props.budgetItem.category);
+        $('#budget-value').val(this.props.budgetItem.budget)
 
+        $('#EditBudgetModal').modal('show');
     }
 
     render() {

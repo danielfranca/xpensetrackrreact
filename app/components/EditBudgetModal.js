@@ -14,13 +14,12 @@ function EditBudgetModal(props) {
           <form className="ui centered form" onSubmit={props.onSubmitBudgetItem} style={{marginLeft: "10px", marginRight: "10px", marginBottom: "10px"}}>
             <div className="field">
               <label>Category</label>
-              <input type="text" name="category" placeholder="Category" defaultValue={props.category} />
+              <input type="text" name="category" id="budget-category" placeholder="Category" defaultValue={props.category} />
             </div>
             <div className="field">
               <label>Budget</label>
-              <input type="text" name="budget" placeholder="Budget" defaultValue={props.budget} />
+              <input type="text" name="budget" id="budget-value" placeholder="Budget" defaultValue={props.budget} />
             </div>
-
 
             <div className="ui middle aligned divided list">
             {

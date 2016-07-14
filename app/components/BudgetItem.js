@@ -3,7 +3,6 @@ import guessBestIcon from "../utils/helpers";
 import numeral from 'numeral';
 var PropTypes = React.PropTypes;
 
-
 function BudgetItem(props) {
     var iconClass = "circular " + guessBestIcon(props.budgetItem.category) + " icon blue";
     console.log("onEditBudgetItem: ", props.onEditBudgetItem);
@@ -23,7 +22,7 @@ function BudgetItem(props) {
 
 BudgetItem.propTypes = {
   onEditBudgetItem: PropTypes.func.isRequired,
-  //budgetItem: PropTypes.object.isRequired
+  budgetItem: PropTypes.object.isRequired
 }
 
 export default BudgetItem;
