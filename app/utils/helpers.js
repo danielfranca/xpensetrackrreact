@@ -86,6 +86,10 @@ export function currentYearMonthAsString() {
     return currentYear + '/' + currentMonth;
 }
 
+export function yearMonthAsString(year, month) {
+    return year + '/' + month;
+}
+
 export function isValidYear(year) {
     var curYear = currentYear();
     return (year > curYear - 20 && year < curYear + 20 );

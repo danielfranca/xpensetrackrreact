@@ -62,7 +62,7 @@ class MainContainer extends React.Component {
     render() {
         return (
             <div>
-            {React.cloneElement(this.props.children, { year: this.state.year, month: this.state.month })}
+            {React.cloneElement(this.props.children, { year: parseInt(this.state.year), month: this.state.month })}
             </div>
         );
     }

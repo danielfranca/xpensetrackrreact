@@ -1,5 +1,6 @@
 import {currentYearMonthAsString} from '../utils/helpers';
 
+// General
 Storage.prototype.setObject = function(key, value) {
     this.setItem(key, JSON.stringify(value));
 }
@@ -9,8 +10,23 @@ Storage.prototype.getObject = function(key) {
     return value && JSON.parse(value);
 }
 
+// BudgetItems /Load/Edit/Find/Save
+// Key: budgetItems-201601
 export function loadBudgetItems(date=currentYearMonthAsString()) {
+    console.log("Loading data for year/month: ", date);
     return localStorage.getObject('budgetItems-' + date) || [];
+}
+
+export function editBudgetItem(category, budget, date=currentYearMonthAsString()) {
+        var items = loadBudgetItems(date);
+        var oldItem = items.find((item) => {
+            return item.category == category;
+        });
+        //Replace old
+        if (oldItem) {
+            oldItem.budget = budget;
+            saveBudgetItems(items, date);
+        }
 }
 
 export function saveBudgetItems(budgetItems, date=currentYearMonthAsString()) {

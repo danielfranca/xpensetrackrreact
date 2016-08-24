@@ -1,6 +1,7 @@
 import React from 'react';
 import BudgetList from '../components/BudgetList';
-import {saveNewCategory} from '../utils/persistence';
+import {saveNewCategory, editBudgetItem} from '../utils/persistence';
+import {yearMonthAsString} from '../utils/helpers'
 var PropTypes = React.PropTypes;
 
 
@@ -24,7 +25,8 @@ class BudgetListContainer extends React.Component {
     }
 
     handleSubmitBudgetItem(e) {
-        console.log("Saving Budget Item...");
+        console.log("Saving Budget Item...", e);
+        editBudgetItem(e.target.category.value, e.target.budget.value, yearMonthAsString(this.props.year, this.props.month));
     }
 
     handleAddNewTransaction(e) {

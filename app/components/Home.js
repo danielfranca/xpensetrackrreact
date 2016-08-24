@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 import BudgetListContainer from '../containers/BudgetListContainer';
 import { loadBudgetItems } from '../utils/persistence'
+import { yearMonthAsString } from '../utils/helpers'
 
 
-function loadData() {
-    return loadBudgetItems();
+function loadData(date) {
+    return loadBudgetItems(date);
 }
 
 function Home(props) {
@@ -19,7 +20,7 @@ function Home(props) {
                     </div>
                 </h2>
                 <div className="ui center aligned">
-                    <BudgetListContainer budgetItems={loadData()} year={props.year} month={props.month} />
+                    <BudgetListContainer budgetItems={loadData(yearMonthAsString(props.year, props.month))} year={props.year} month={props.month} />
                 </div>
             </div>
         </div>
