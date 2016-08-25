@@ -90,6 +90,29 @@ export function yearMonthAsString(year, month) {
     return year + '/' + month;
 }
 
+export function navYearMonth(year, month, direction) {
+
+    var monthIdx = months.indexOf(month);
+
+    if (direction == 'prev') {
+        if (month == 0) {
+            year--;
+            monthIdx=11;
+        } else {
+            monthIdx--;
+        }
+    } else {
+        if (monthIdx == 11) {
+            monthIdx = 0;
+            year++;
+        } else {
+            monthIdx++;
+        }
+    }
+
+    return year, months[monthIdx];
+}
+
 export function isValidYear(year) {
     var curYear = currentYear();
     return (year > curYear - 20 && year < curYear + 20 );
