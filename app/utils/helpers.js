@@ -95,7 +95,7 @@ export function navYearMonth(year, month, direction) {
     var monthIdx = months.indexOf(month);
 
     if (direction == 'prev') {
-        if (month == 0) {
+        if (monthIdx == 0) {
             year--;
             monthIdx=11;
         } else {
@@ -110,7 +110,7 @@ export function navYearMonth(year, month, direction) {
         }
     }
 
-    return year, months[monthIdx];
+    return { "year": year, "month": months[monthIdx] };
 }
 
 export function isValidYear(year) {

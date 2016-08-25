@@ -1,17 +1,42 @@
 import React from 'react';
 import BudgetList from '../components/BudgetList';
 import {saveNewCategory, editBudgetItem} from '../utils/persistence';
-import {yearMonthAsString} from '../utils/helpers'
+import {yearMonthAsString, navYearMonth} from '../utils/helpers'
 var PropTypes = React.PropTypes;
 
 
 class BudgetListContainer extends React.Component {
+
     constructor(props) {
         super(props);
+        this.state = {
+            year: props.year,
+            month: props.month
+        };
         this.handleAddCategory = this.handleAddCategory.bind(this);
         this.handleAddNewTransaction = this.handleAddNewTransaction.bind(this);
         this.handleSubmitCategory = this.handleSubmitCategory.bind(this);
         this.handleSubmitBudgetItem = this.handleSubmitBudgetItem.bind(this);
+        this.handlePrevMonthButtonClicked = this.handlePrevMonthButtonClicked.bind(this);
+        this.handleNextMonthButtonClicked = this.handleNextMonthButtonClicked.bind(this);
+    }
+
+    handlePrevMonthButtonClicked(e) {
+        console.log("Prev Button Clicked");
+        var obj = navYearMonth(this.state.year, this.state.month, "prev");
+        this.setState({
+            year: obj.year,
+            month: obj.month
+        })
+    }
+
+    handleNextMonthButtonClicked(e) {
+        console.log("Next Button Clicked");
+        var obj = navYearMonth(this.state.year, this.state.month, "next");
+        this.setState({
+            year: obj.year,
+            month: obj.month
+        })
     }
 
     handleAddCategory(e) {
@@ -40,11 +65,13 @@ class BudgetListContainer extends React.Component {
     render() {
         return (
             <BudgetList
-                year={this.props.year} month={this.props.month} budgetItems={this.props.budgetItems}
+                year={this.state.year} month={this.state.month} budgetItems={this.props.budgetItems}
                 onAddCategory={this.handleAddCategory}
                 onAddNewTransaction={this.handleAddNewTransaction}
                 onSubmitCategory={this.handleSubmitCategory}
                 onSubmitBudgetItem={this.handleSubmitBudgetItem}
+                onPrevButtonClicked={this.handlePrevMonthButtonClicked}
+                onNextButtonClicked={this.handleNextMonthButtonClicked}
             />
         );
     }

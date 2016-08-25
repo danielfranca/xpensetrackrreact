@@ -19,12 +19,12 @@ function BudgetList(props) {
             <div className="ui grid" style={{marginTop: "10px", marginBottom: "10px"}} id="top-elements">
                 <div className="ui buttons right floated mini">
                     <button className="ui button">
-                    <i className="chevron left icon blue"></i>
+                    <i className="chevron left icon blue" onClick={props.onPrevButtonClicked}></i>
                     </button>
                     <button className="ui button blue">
                         {year} {month}
                     </button>
-                    <button className="ui button">
+                    <button className="ui button" onClick={props.onNextButtonClicked}>
                     <i className="chevron right icon blue"></i>
                     </button>
                 </div>
