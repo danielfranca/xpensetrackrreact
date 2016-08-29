@@ -2,6 +2,7 @@ import React from 'react';
 import BudgetList from '../components/BudgetList';
 import {saveNewCategory, editBudgetItem} from '../utils/persistence';
 import {yearMonthAsString, navYearMonth} from '../utils/helpers'
+import { loadData } from '../utils/persistence';
 var PropTypes = React.PropTypes;
 
 
@@ -65,7 +66,8 @@ class BudgetListContainer extends React.Component {
     render() {
         return (
             <BudgetList
-                year={this.state.year} month={this.state.month} budgetItems={this.props.budgetItems}
+                year={this.state.year} month={this.state.month}
+                budgetItems={loadData(yearMonthAsString(this.state.year, this.state.month))}
                 onAddCategory={this.handleAddCategoryClicked}
                 onAddNewTransaction={this.handleAddNewTransactionClicked}
                 onSubmitCategory={this.handleSubmitCategory}
@@ -83,8 +85,7 @@ BudgetListContainer.contextTypes = {
 
 BudgetListContainer.propTypes = {
   month: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  budgetItems: PropTypes.array.isRequired,
+  year: PropTypes.number.isRequired
 }
 
 export default BudgetListContainer;

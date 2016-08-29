@@ -1,4 +1,6 @@
 import {currentYearMonthAsString} from '../utils/helpers';
+import { yearMonthAsString } from '../utils/helpers'
+
 
 // General
 Storage.prototype.setObject = function(key, value) {
@@ -82,4 +84,26 @@ export function saveNewCategory(categoryName, isPermanent) {
             localStorage.setObject('categories-hash', categoriesHash);
         }
     }
+}
+
+export function loadData(date) {
+    let data = loadBudgetItems(date);
+    if (data) {
+        return data;
+    }
+    else {
+        data = [];
+        //If there's no data/Create new one with existent categories
+        let categories = localStorage.getObject('categories') || [];
+        for (var cat of categories) {
+            if (cat.name) {
+                data.push({
+                    category: cat.name,
+                    budget: 0,
+                    transactions: []
+                })
+            }
+        }
+    }
+    return data;
 }

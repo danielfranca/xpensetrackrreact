@@ -1,5 +1,6 @@
 import React from 'react';
 import BudgetItem from '../components/BudgetItem';
+
 var PropTypes = React.PropTypes;
 
 
