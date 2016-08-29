@@ -57,17 +57,17 @@ export function renameCategory(oldName, newName, date = currentYearMonthAsString
     }
 }
 
-export function saveNewCategory(categoryName, isPermanent) {
+export function saveNewCategory(categoryName, isPermanent, date) {
     console.log("Saving new category: ", categoryName);
 
     //Save it for the current budget month
-    var data = loadBudgetItems();
+    var data = loadData(date);
     data.push({
         category: categoryName,
         budget: 0,
         transactions: []
     });
-    saveBudgetItems(data);
+    saveBudgetItems(data, date);
 
     //Save it as new default category
     if (isPermanent) {

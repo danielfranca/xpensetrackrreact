@@ -47,7 +47,7 @@ class BudgetListContainer extends React.Component {
     }
 
     handleSubmitCategory(e) {
-        saveNewCategory(e.target.categoryName.value, e.target.isPermanent);
+        saveNewCategory(e.target.categoryName.value, e.target.isPermanent.checked, yearMonthAsString(this.state.year, this.state.month));
     }
 
     handleSubmitBudgetItem(e) {
