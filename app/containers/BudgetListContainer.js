@@ -13,8 +13,8 @@ class BudgetListContainer extends React.Component {
             year: props.year,
             month: props.month
         };
-        this.handleAddCategory = this.handleAddCategory.bind(this);
-        this.handleAddNewTransaction = this.handleAddNewTransaction.bind(this);
+        this.handleAddCategoryClicked = this.handleAddCategoryClicked.bind(this);
+        this.handleAddNewTransactionClicked = this.handleAddNewTransactionClicked.bind(this);
         this.handleSubmitCategory = this.handleSubmitCategory.bind(this);
         this.handleSubmitBudgetItem = this.handleSubmitBudgetItem.bind(this);
         this.handlePrevMonthButtonClicked = this.handlePrevMonthButtonClicked.bind(this);
@@ -39,7 +39,7 @@ class BudgetListContainer extends React.Component {
         })
     }
 
-    handleAddCategory(e) {
+    handleAddCategoryClicked(e) {
         console.log("handleAddCategory - E: ", e);
         $('#categoryNameInput').val("");
         $('#categoryModal').modal('show');
@@ -54,7 +54,7 @@ class BudgetListContainer extends React.Component {
         editBudgetItem(e.target.category.value, e.target.budget.value, yearMonthAsString(this.props.year, this.props.month));
     }
 
-    handleAddNewTransaction(e) {
+    handleAddNewTransactionClicked(e) {
         console.log("Clicked to add new transaction")
         $('#newTransactionCategory').val("");
         $('#newTransactionDescription').val("");
@@ -66,8 +66,8 @@ class BudgetListContainer extends React.Component {
         return (
             <BudgetList
                 year={this.state.year} month={this.state.month} budgetItems={this.props.budgetItems}
-                onAddCategory={this.handleAddCategory}
-                onAddNewTransaction={this.handleAddNewTransaction}
+                onAddCategory={this.handleAddCategoryClicked}
+                onAddNewTransaction={this.handleAddNewTransactionClicked}
                 onSubmitCategory={this.handleSubmitCategory}
                 onSubmitBudgetItem={this.handleSubmitBudgetItem}
                 onPrevButtonClicked={this.handlePrevMonthButtonClicked}

@@ -6,7 +6,25 @@ import { yearMonthAsString } from '../utils/helpers'
 
 
 function loadData(date) {
-    return loadBudgetItems(date);
+    let initialData = loadBudgetItems(date);
+    if (initialData) {
+        return initialData;
+    }
+    else {
+        initialData = [];
+        //If there's no data/Create new one with existent categories
+        let categories = localStorage.getObject('categories') || [];
+        for (var cat of categories) {
+            if (cat.name) {
+                initialData.push({
+                    category: cat.name,
+                    budget: 0,
+                    transactions: []
+                })
+            }
+        }
+    }
+    return initialData;
 }
 
 function Home(props) {

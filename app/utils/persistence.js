@@ -14,7 +14,7 @@ Storage.prototype.getObject = function(key) {
 // Key: budgetItems-201601
 export function loadBudgetItems(date=currentYearMonthAsString()) {
     console.log("Loading data for year/month: ", date);
-    return localStorage.getObject('budgetItems-' + date) || [];
+    return localStorage.getObject('budgetItems-' + date);
 }
 
 export function editBudgetItem(category, budget, date=currentYearMonthAsString()) {
